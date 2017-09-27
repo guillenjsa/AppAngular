@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Notas</h3>
+          </div>
+          <div class="panel-body">
+            <ul class="list-group">
+              <li (click)="viewNote(note)" class="list-group-item" *ngFor="let note of notes">{{note.id}}. {{note.title}}</li>
+            </ul>
+            <button type="button" class="btn btn-primary btn-block" (click)="showForm()">Agregar nota</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6" *ngIf="show_form">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">{{edit ? 'Editar Nota' : 'Crear Notas'}}</h3>
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+              <label for="title">Nombre de la nota</label>
+              <input type="title" class="form-control" id="title" placeholder="Titulo" [(ngModel)]="note.title">
+            </div>
+            <div class="form-group">
+              <label for="description">Descripcion</label>
+              <textarea class="form-control" id="description" placeholder="Descripcion" [(ngModel)]="note.body"></textarea>
+            </div>
+            <div class="row">
+              <div class="col-xs-4">
+                <button type="button" class="btn btn-danger btn-block" *ngIf="edit" (click)="deleteNote()">Eliminar Nota</button>
+              </div>
+              <div class="col-xs-4">
+                <button type="button" class="btn btn-default btn-block" (click)="hideForm()">Cancelar Nota</button>
+              </div>
+              <div class="col-xs-4">
+                <button type="button" class="btn btn-primary btn-block" (click)="addNote()">Agregar Nota</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
