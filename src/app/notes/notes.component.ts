@@ -42,13 +42,13 @@ export class NotesComponent {
     this.hideForm();
   }
 
-  viewNote(note) {
-    this.note = note;
-    this.showForm();
+  editNote(i) {
+    // this.note = note;
+    // this.showForm();
     this.edit = true;
   }
 
-  deleteNote() {
+  deleteNote(i) {
     this.db.database.ref('notas/' + this.note.id).remove();
     this.hideForm();
   }

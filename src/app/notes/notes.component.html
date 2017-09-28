@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row">
       <div class="col-xs-6">
         <div class="panel panel-default">
@@ -42,4 +42,49 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+
+  <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-primary clearfix">
+              <!-- Default panel contents -->
+              <div class="panel-heading clearfix">
+                <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Notas</h4>
+                <div class="pull-right">
+                    <a (click)="addNote()" class="btn btn-success btn-sm">
+                        Nueva
+                    </a>
+                </div>
+              </div>
+
+              <!-- Table -->
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Titulo</th>
+                    <th>Contenido</th>
+                    <th>Acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let note of notes; let i = index">
+                    <td>{{ note.id }}</td>
+                    <td>{{ note.title }}</td>
+                    <td>{{ note.body }}</td>
+                    <td>
+                        <a (click)="editNote(i)" class="btn btn-warning btn-sm">
+                          Editar
+                        </a>
+                        <a (click)="deleteNote(i)" class="btn btn-danger btn-sm">
+                          Eliminar
+                        </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+      </div>
+    </div>
